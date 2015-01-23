@@ -188,8 +188,7 @@ gulp.task('browser-sync', function() {
 
 // default task
 gulp.task('default',['images','sass','browserify','jshint','php','themeDescription', 'themeLanguage'], function() {
-        //gulp.start('watch');
-        //return gulp.src('').pipe(notify({ message: 'default task complete. Starting watch...' }));
+        return gulp.src('').pipe(notify({ message: 'default task complete.' }));
 });
 
 gulp.task('watch',['browser-sync'], function() {
