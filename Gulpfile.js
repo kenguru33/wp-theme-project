@@ -149,8 +149,7 @@ gulp.task('browserify', function () {
 gulp.task('jshint', function() {
    return gulp.src(source + 'assets/js/**/*.js')
        .pipe(jshint())
-       .on("error", notify.onError())
-       //.pipe(jshint.reporter('default'));
+       .pipe(jshint.reporter('default'));
 });
 
 gulp.task('php', function() {
