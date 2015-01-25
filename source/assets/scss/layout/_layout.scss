@@ -28,7 +28,7 @@
     .content-area {
       @include span-columns(8);
       padding: 1em;
-      background-color: greenyellow;
+      //background-color: greenyellow;
     }
     .widget-area {
       @include span-columns(4);
@@ -43,5 +43,6 @@
   margin: 1px;
   .site-info {
     @include span-columns(12);
+    text-align: center;
   }
 }

@@ -6,5 +6,5 @@ require('../vendor/jquery/dist/jquery.js');
 require('./lib/print.js');
 
 function testus(t) {
-    print--ab("balle");
+    printab("balle");
 }
