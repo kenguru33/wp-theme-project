@@ -127,8 +127,6 @@ gulp.task('sass', function() {
 // show help
 gulp.task('help', function() {
     console.log('');
-    //console.log('gulp ' + '--env=prod'.bold.cyan + '     # production build');
-    //console.log('gulp ' + '--env=dev'.bold.cyan  + '      # develeopmed build (default)');
     console.log('gulp ' + '--env=prod|dev --deploy=none|zip|ftp' + '     # default: --env=dev --deploy=none');
     console.log('');
 });
