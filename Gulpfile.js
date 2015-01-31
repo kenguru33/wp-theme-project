@@ -23,13 +23,15 @@ var
     gulpif = require('gulp-if'),
     jshint = require('gulp-jshint'),
     notify = require('gulp-notify'),
-    //concat = require('gulp-concat'),
+    concat = require('gulp-concat'),
     zip = require('gulp-zip'),
     //merge = require('merge-stream'),
     rubySass = require('gulp-ruby-sass'),
     browserSync = require('browser-sync'),
     plumber = require('gulp-plumber'),
-    through = require('through')
+    through = require('through'),
+    gulpBowerFiles = require('gulp-bower-files'),
+    mainBowerFiles = require('main-bower-files'),
     pkg = require('./package.json');
 
 // command line option --env <environment>
@@ -141,6 +143,7 @@ gulp.task('browserify', function () {
     return gulp.src(js.in)
         .pipe(browserified)
         .pipe(gulpif(prodBuild,uglify()))
+        //.pipe(concat('bundle.js'))
         .pipe(gulp.dest(js.out));
 });
 
@@ -180,8 +183,14 @@ gulp.task('deploy',['default'], function() {
 
 gulp.task('browser-sync', function() {
     browserSync.init(null, {
-        proxy: "localhost/~bernt/wordpress",
+        proxy: "localhost/~bernt/wordpress"
     });
+});
+
+// copy from bower-components to source
+gulp.task('bower-files', function() {
+    return gulp.src(mainBowerFiles())
+        .pipe(gulp.dest(source + 'assets/js/'))
 });
 
 // default task
