@@ -7,22 +7,25 @@
 }
 
 .site-header {
-  @include outer-container(12);
+  @include outer-container(100);
   background-color: gainsboro;
   margin: 1px;
   .site-branding {
     background-color: darkgray;
     @include span-columns(12);
   }
-  .main-navigation {
-    background-color: #102030;
+  .navigation {
     @include span-columns(12);
+
   }
 }
+
+
+
 // Set direction (right-to-left -> left sidebar)
 @include direction-context(left-to-right) {
   .site-content {
-    @include outer-container(12);
+    @include outer-container(100);
     background-color: #0000ff;
     margin: 1px;
     .content-area {
@@ -38,7 +41,7 @@
   }
 }
 .site-footer {
-  @include outer-container(12);
+  @include outer-container(100);
   background-color: gainsboro;
   margin: 1px;
   .site-info {

@@ -1,5 +1,8 @@
+@charset "UTF-8";
 @import "normalize";
 @import "../vendor/bourbon/app/assets/stylesheets/bourbon";
 @import "../vendor/neat/app/assets/stylesheets/neat";
 @import "base/base";
+@import "navigation";
+@import "footer";
 @import "layout";
