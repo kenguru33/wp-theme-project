@@ -30,8 +30,6 @@ var
     browserSync = require('browser-sync'),
     plumber = require('gulp-plumber'),
     through = require('through'),
-    gulpBowerFiles = require('gulp-bower-files'),
-    mainBowerFiles = require('main-bower-files'),
     pkg = require('./package.json');
 
 // command line option --env <environment>
@@ -185,12 +183,6 @@ gulp.task('browser-sync', function() {
     browserSync.init(null, {
         proxy: "localhost/~bernt/wordpress"
     });
-});
-
-// copy from bower-components to source
-gulp.task('bower-files', function() {
-    return gulp.src(mainBowerFiles())
-        .pipe(gulp.dest(source + 'assets/js/'))
 });
 
 // default task

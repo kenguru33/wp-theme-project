@@ -16,14 +16,6 @@
   "devDependencies": {
     "bourbon": "~4.1.0",
     "neat": "~1.7.1"
-  },
-  "dependencies": {
-    "jquery": "~2.1.3"
-  },
-  "overrides": {
-    "BOWER-PACKAGE": {
-      "main": "jquery.js"
-    }
   }
 }
 
