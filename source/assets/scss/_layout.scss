@@ -8,35 +8,33 @@
 
 .site-header {
   @include outer-container(100);
-  background-color: gainsboro;
-  margin: 1px;
   .site-branding {
     background-color: darkgray;
     @include span-columns(12);
   }
   .navigation {
     @include span-columns(12);
-
   }
 }
 
 
-
-// Set direction (right-to-left -> left sidebar)
-@include direction-context(left-to-right) {
-  .site-content {
-    @include outer-container(100);
-    background-color: #0000ff;
-    margin: 1px;
-    .content-area {
-      @include span-columns(8);
-      padding: 1em;
-      //background-color: greenyellow;
-    }
-    .widget-area {
-      @include span-columns(4);
-      background-color: greenyellow;
-      padding: 1em;
+@include media($large-screen) {
+  // Set direction (right-to-left -> left sidebar)
+  @include direction-context(left-to-right) {
+    .site-content {
+      @include outer-container(100);
+      background-color: #fafff4;
+      margin: 1px;
+      .content-area {
+        @include span-columns(8);
+        padding: 1em;
+        //background-color: greenyellow;
+      }
+      .widget-area {
+        @include span-columns(4);
+        background-color: #fcffdc;
+        padding: 1em;
+      }
     }
   }
 }

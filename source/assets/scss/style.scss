@@ -3,6 +3,8 @@
 @import "../vendor/bourbon/app/assets/stylesheets/bourbon";
 @import "../vendor/neat/app/assets/stylesheets/neat";
 @import "base/base";
+@import "variables";
 @import "navigation";
 @import "footer";
 @import "layout";
+@import "typography";

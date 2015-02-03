@@ -86,7 +86,7 @@
     }
   }
 
-  ul.navigation-menu {
+  ul.menu {
     -webkit-transform-style: preserve-3d; // stop webkit flicker
     clear: both;
     display: none;
@@ -109,7 +109,7 @@
 
   // The nav items
 
-  ul li.nav-link {
+  ul li.menu-item {
     background: $navigation-background;
     display: block;
     line-height: $navigation-height;
@@ -150,7 +150,7 @@
 
   // Sub menus
 
-  li.more.nav-link {
+  li.menu-item-has-children.menu-item {
     padding-right: 0;
 
     @include media($large-screen) {
@@ -176,7 +176,7 @@
     }
   }
 
-  li.more {
+  li.menu-item-has-children {
     overflow: visible;
     padding-right: 0;
 
@@ -200,8 +200,8 @@
       }
     }
 
-    &:focus > .submenu,
-    &:hover > .submenu {
+    &:focus > .sub-menu,
+    &:hover > .sub-menu {
       display: block;
     }
 
@@ -211,7 +211,7 @@
     }
   }
 
-  ul.submenu {
+  ul.sub-menu {
     display: none;
     padding-left: 0;
 
@@ -221,7 +221,7 @@
       top: 1.5em;
     }
 
-    .submenu {
+    .sub-menu {
       @include media($horizontal-bar-mode) {
         left: $navigation-submenu-width - 0.2em;
         top: 0;

@@ -33,38 +33,34 @@
                 </a>
                 <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
                 <nav role="navigation">
-                    <ul id="js-navigation-menu" class="navigation-menu show">
-                        <li class="nav-link"><a href="javascript:void(0)">Products</a></li>
-                        <li class="nav-link"><a href="javascript:void(0)">About Us</a></li>
-                        <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
-                        <li class="nav-link more"><a href="javascript:void(0)">More</a>
-                            <ul class="submenu">
-                                <li><a href="javascript:void(0)">Submenu Item</a></li>
-                                <li><a href="javascript:void(0)">Another Item</a></li>
-                                <li class="more"><a href="javascript:void(0)">Item with submenu</a>
-                                    <ul class="submenu">
-                                        <li><a href="javascript:void(0)">Sub-submenu Item</a></li>
-                                        <li><a href="javascript:void(0)">Another Item</a></li>
-                                    </ul>
-                                </li>
-                                <li class="more"><a href="javascript:void(0)">Another submenu</a>
-                                    <ul class="submenu">
-                                        <li><a href="javascript:void(0)">Sub-submenu</a></li>
-                                        <li><a href="javascript:void(0)">An Item</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <?php
+
+                    $defaults = array(
+                        'theme_location'  => '',
+                        'menu'            => '',
+                        'container'       => '',
+                        'container_class' => '',
+                        'container_id'    => '',
+                        'menu_class'      => 'menu show',
+                        'menu_id'         => 'js-navigation-menu',
+                        'echo'            => true,
+                        'fallback_cb'     => 'wp_page_menu',
+                        'before'          => '',
+                        'after'           => '',
+                        'link_before'     => '',
+                        'link_after'      => '',
+                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                        'depth'           => 0,
+                        'walker'          => ''
+                    );
+
+                    wp_nav_menu( $defaults );
+
+                    ?>
                 </nav>
                 <div class="navigation-tools">
                     <div class="search-bar">
-                        <form role="search">
-                            <input type="search" placeholder="Enter Search" />
-                            <button type="submit">
-                                <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
-                            </button>
-                        </form>
+                        <?php get_search_form(); ?>
                     </div>
                     <a href="javascript:void(0)" class="sign-up">Sign Up</a>
                 </div>
