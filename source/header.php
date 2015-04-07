@@ -23,13 +23,28 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+            <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+            <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+            <?php
+            $t = true;
+            if ($t==true) {
+	            ob_start();
+	            ?>
+	            <div id = "js-parallax-window" class="parallax-window" >
+                <div class="parallax-static-content" >
+                    <h1 ></h1 >
+                </div >
+                <div id = "js-parallax-background" class="parallax-background" ></div >
+            </div >
+            <?php
+                echo ob_get_clean();
+                } ?>
 		</div><!-- .site-branding -->
-        <div class="navigation" role="banner">
+        <div class="main-navigation" role="banner">
             <div class="navigation-wrapper">
                 <a href="javascript:void(0)" class="logo">
-                    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
+<!--                    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">-->
+                    <i class="fa fa-compass fa-2x"></i>
                 </a>
                 <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
                 <nav role="navigation">

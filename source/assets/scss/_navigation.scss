@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.navigation {
+.main-navigation {
   ///////////////////////////////////////////////////////////////////////////////////
   $base-border-color: gainsboro !default;
   $base-border-radius: 3px !default;
@@ -49,6 +49,10 @@
     img {
       max-height: $navigation-height;
       padding: 0.8em 0;
+    }
+    .fa {
+      max-height: $navigation-height;
+      padding: 0.5em 0;
     }
   }
 

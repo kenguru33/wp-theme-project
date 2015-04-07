@@ -47,8 +47,8 @@ var
     dest = './build/',
 
     images = {
-        in: source + 'assets/img/**/*.*',
-        out: dest + 'assets/img/'
+        in: source + 'assets/images/**/*.*',
+        out: dest + 'assets/images/'
     };
 
     vendors = {
@@ -94,7 +94,12 @@ var
         out: dest
     }
 
-    browserReload = browserSync.reload;
+    fonts = {
+        in: [source + 'assets/vendor/font-awesome/fonts/*.*'],
+        out: dest + 'assets/fonts'
+    }
+
+    //browserReload = browserSync.reload;
 
 // print build type
 console.log(pkg.name.bold.red + ' ' + pkg.version.bold.red + ', ' + (prodBuild ? 'production'.bold.green : 'development'.bold.green) + ' build'.bold.green);
@@ -120,9 +125,8 @@ gulp.task('sass', function() {
         .pipe(pleeease(css.pleeeaseOpts))
         .pipe(size({title: 'CSS out '}))
         .pipe(gulp.dest(css.out))
-        .pipe(browserReload({stream: true}));
+        .pipe(browserSync.reload({stream: true}));
 });
-
 
 // show help
 gulp.task('help', function() {
@@ -158,7 +162,7 @@ gulp.task('php', function() {
     return gulp.src(php.in)
         .pipe(newer(php.out))
         .pipe(gulp.dest(php.out))
-        .pipe(browserReload({stream: true}));
+        .pipe(browserSync.reload({stream: true}));
 });
 
 
@@ -185,8 +189,13 @@ gulp.task('browser-sync', function() {
     });
 });
 
+gulp.task('fonts', function() {
+   return gulp.src(fonts.in)
+       .pipe(gulp.dest(dest + 'assets/fonts/'));
+});
+
 // default task
-gulp.task('default',['images','sass','browserify','jshint','php','themeDescription', 'themeLanguage'], function() {
+gulp.task('default',['images','sass','browserify','jshint','php','themeDescription', 'themeLanguage', 'fonts'], function() {
         return gulp.src('').pipe(notify({ message: 'default task complete.' }));
 });
 

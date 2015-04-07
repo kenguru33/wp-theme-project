@@ -3,8 +3,10 @@
 @import "../vendor/bourbon/app/assets/stylesheets/bourbon";
 @import "../vendor/neat/app/assets/stylesheets/neat";
 @import "base/base";
+@import "../vendor/font-awesome/scss/font-awesome";
 @import "variables";
 @import "navigation";
 @import "footer";
 @import "layout";
 @import "typography";
+@import "parallax-window";

@@ -105,9 +105,11 @@ function mysite_scripts() {
 	wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/assets/css/style.css' );
 
     wp_enqueue_script("jquery");
+    //wp_enqueue_script("app.js", get_template_directory_uri() . '/assets/js/app.js', array(), '01022015', true);
 
 	wp_enqueue_script( 'mysite-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
 	wp_enqueue_script( 'mysite-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
+    wp_enqueue_script("parallax-window.js", get_template_directory_uri() . '/assets/js/parallax-window.js', array(), '01022015', true);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -139,3 +141,60 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Theme admin setup
+ */
+
+function theme_header_options_settings() {
+	echo "theme header options settings";
+}
+
+function setup_theme_admin_menus() {
+	add_submenu_page('themes.php',
+		'Header Options', 'Header Options', 'manage_options',
+		'header-options', 'theme_header_options_settings');
+}
+
+add_action("admin_menu", "setup_theme_admin_menus");
+
+
+add_action('admin_menu', 'my_plugin_menu');
+
+function my_plugin_menu() {
+	add_theme_page('My Plugin Theme', 'My Plugin', 'edit_theme_options', 'my-unique-identifier', 'my_plugin_function');
+}
+
+
+
+
+// add our custom header options hook
+add_action('custom_header_options', 'my_custom_image_options');
+
+/* Adds two new text fields, custom_option_one and custom_option_two to the Custom Header options screen */
+function my_custom_image_options()
+{
+	?>
+	<table class="form-table">
+		<tbody>
+		<tr valign="top" class="hide-if-no-js">
+			<th scope="row"><?php _e( 'Custom Option One:' ); ?></th>
+			<td>
+				<p>
+					<input type="text" name="custom_option_one" id="custom_option_one" value="<?php echo esc_attr( get_theme_mod( 'custom_option_one', 'Default Value' ) ); ?>" />
+				</p>
+			</td>
+		</tr>
+		<tr valign="top" class="hide-if-no-js">
+			<th scope="row"><?php _e( 'Custom Option Two:' ); ?></th>
+			<td>
+				<p>
+					<input type="text" name="custom_option_two" id="custom_option_two" value="<?php echo esc_attr( get_theme_mod( 'custom_option_two', 'Default Value' ) ); ?>" />
+				</p>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+<?php
+} // end my_custom_image_options
+

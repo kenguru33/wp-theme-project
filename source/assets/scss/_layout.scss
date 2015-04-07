@@ -2,14 +2,17 @@
   //background-color: $color__background-body;
   margin-left: 5em;
   margin-right: 5em;
-  margin-top: 0;
-  margin-bottom: 0;
+  //margin-top: 0;
+  //margin-bottom: 0;
+ // margin-left: auto;
+ // margin-right: auto;
+  //width: $max-width;
 }
 
 .site-header {
   @include outer-container(100);
   .site-branding {
-    background-color: darkgray;
+    background-color: #fafff4;
     @include span-columns(12);
   }
   .navigation {
@@ -24,15 +27,15 @@
     .site-content {
       @include outer-container(100);
       background-color: #fafff4;
-      margin: 1px;
+      //margin: 1px;
       .content-area {
         @include span-columns(8);
         padding: 1em;
-        //background-color: greenyellow;
+        background-color: #efffcb;
       }
       .widget-area {
         @include span-columns(4);
-        background-color: #fcffdc;
+       // background-color: #fae004;
         padding: 1em;
       }
     }
@@ -40,7 +43,7 @@
 }
 .site-footer {
   @include outer-container(100);
-  background-color: gainsboro;
+  //background-color: gainsboro;
   margin: 1px;
   .site-info {
     @include span-columns(12);
